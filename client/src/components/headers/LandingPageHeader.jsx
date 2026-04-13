@@ -15,7 +15,6 @@ const LandingPageHeader = () => {
                     <LoginButton/>
                     <GetStartedButton/>
                 </div>
-
             </header>
         </>
     );

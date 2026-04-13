@@ -1,12 +1,15 @@
 import LandingPageHeader from "../components/headers/LandingPageHeader";
+import LandingPageHero from "../components/sections/LandingPageHero";
 
 const LandingPage = () => {
     return(
         <>
-            <LandingPageHeader></LandingPageHeader>
-
+            <LandingPageHeader/>
+            <main>
+                <LandingPageHero/>
+            </main>
         </>
     );
 } 
 
-export default LandingPage
+export default LandingPage;
