@@ -1,5 +1,7 @@
-import LoginButton from "../buttons/LoginButton";
-import GetStartedButton from "../buttons/GetStartedButton";
+import { Link, NavLink } from 'react-router-dom'
+
+import LoginButton from "../buttons/LoginButton"
+import GetStartedButton from "../buttons/GetStartedButton"
 
 const LandingPageHeader = () => {
     return(
@@ -7,9 +9,24 @@ const LandingPageHeader = () => {
             <header className="w-full bg-white px-6 py-4 flex flex-row justify-between items-center">
                 <span className="text-black text-2xl font-bold">SideQuest</span>
                 <nav className="flex gap-6">
-                    <a href="#" className="text-black hover:text-gray-300">Home</a>
-                    <a href="#" className="text-black hover:text-gray-300">About Us</a>
-                    <a href="#" className="text-black hover:text-gray-300">Contact Us</a>
+                    <NavLink
+                        to="/about-page"
+                        className="text-black hover:text-gray-300"
+                    >
+                        Home
+                    </NavLink>
+                    <NavLink
+                        to="/about-us-page"
+                        className="text-black hover:text-gray-300"
+                    >
+                        About Us
+                    </NavLink>
+                    <NavLink
+                        to="/contact-us-page"
+                        className="text-black hover:text-gray-300"
+                    >
+                        Contact Us
+                    </NavLink>
                 </nav>
                 <div className="flex gap-4">
                     <LoginButton/>
