@@ -10,7 +10,7 @@ const LandingPageHeader = () => {
                 <span className="text-black text-2xl font-bold">SideQuest</span>
                 <nav className="flex gap-6">
                     <NavLink
-                        to="/about-us-page"
+                        to="/landing-page"
                         className="text-black hover:text-gray-300"
                     >
                         Home
