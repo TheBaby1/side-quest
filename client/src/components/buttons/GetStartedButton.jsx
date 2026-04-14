@@ -1,7 +1,12 @@
-const GetStartedButton = () => {
+const GetStartedButton = ({ onClick }) => {
     return (
         <>
-            <button className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 cursor-pointer">Get Started</button>       
+            <button
+                className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 cursor-pointer"
+                onClick={onClick}
+            >
+                Get Started
+            </button>
         </>
     );
 }

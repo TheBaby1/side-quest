@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import LoginButton from "../buttons/LoginButton"
 import GetStartedButton from "../buttons/GetStartedButton"
 
-const LandingPageHeader = () => {
+const LandingPageHeader = ({ onGetStarted }) => {
     return(
         <>
             <header className="w-full bg-white px-6 py-4 flex flex-row justify-between items-center">
@@ -30,7 +30,9 @@ const LandingPageHeader = () => {
                 </nav>
                 <div className="flex gap-4">
                     <LoginButton/>
-                    <GetStartedButton/>
+                    <GetStartedButton
+                        onClick={onGetStarted}
+                    />
                 </div>
             </header>
         </>
