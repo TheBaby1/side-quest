@@ -19,7 +19,9 @@ const SignUpModal = ({ isOpen, onClose }) => {
                         </p>
                     </div>
 
-                    <SignUpForm/>
+                    <SignUpForm
+                        onSuccess={onClose}
+                    />
 
                     <div className="flex justify-between items-center mb-6">
                         <CancelButton/>

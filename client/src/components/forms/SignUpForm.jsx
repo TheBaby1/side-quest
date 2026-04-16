@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import BigBlackButton from '../buttons/BigBlackButton';
 
-const SignUpForm = () => {
+const SignUpForm = ({ onSuccess }) => {
     const [formData, setFormData] = useState({
        username: "",
        email: "",
@@ -59,6 +59,8 @@ const SignUpForm = () => {
         }
 
         console.log(formData);
+
+        onSuccess();
     }
 
     return (
