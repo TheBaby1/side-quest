@@ -30,7 +30,9 @@ const LoginModal = ({ isOpen, onClose }) => {
 
                     </div>
 
-                    <LoginForm/>
+                    <LoginForm
+                        onSuccess={onClose}
+                    />
                 </div>
             </div>
         </>
