@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import BigBlackButton from '../buttons/BigBlackButton';
+
 const SignUpForm = () => {
     const [formData, setFormData] = useState({
        username: "",
@@ -18,6 +20,10 @@ const SignUpForm = () => {
     function handleChange(e) {
         setFormData({...formData, [e.target.name]: e.target.value });
         setErrors({...errors, [e.target.name]: ""});
+    }
+
+    function handleSubmit() {
+        console.log(formData);
     }
 
     return (
@@ -57,6 +63,11 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     placeholder="Confirm Password"
                     className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black mb-4"
+                />
+
+                <BigBlackButton
+                    label="Create My Account"
+                    onClick={handleSubmit}
                 />
             </div>
         </>
