@@ -1,5 +1,7 @@
 import { useRef, useEffect } from 'react'
 
+import LoginForm from '../forms/LoginForm';
+
 const LoginModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
@@ -23,10 +25,12 @@ const LoginModal = ({ isOpen, onClose }) => {
         <>
             <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
                 <div ref={modalRef} className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
-                    <div className="flex justify-between items-center mb-4">
-                        <h2 className="text-black font-semibold">Welcome back!</h2>
+                    <div className="flex justify-center items-center mb-4">
+                        <h2 className="text-black text-2xl font-semibold mb-4">Welcome back!</h2>
 
                     </div>
+
+                    <LoginForm/>
                 </div>
             </div>
         </>
