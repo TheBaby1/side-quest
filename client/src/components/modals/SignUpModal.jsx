@@ -3,6 +3,8 @@ import { useRef, useEffect } from 'react'
 import CloseButton from "../buttons/CloseButton";
 import CancelButton from "../buttons/CancelButton";
 import ConfirmButton from "../buttons/ConfirmButton";
+import OtherOptionButton from '../buttons/sign-up-buttons/OtherOptionButton';
+
 import SignUpForm from "../forms/SignUpForm";
 
 const SignUpModal = ({ isOpen, onClose }) => {
@@ -10,6 +12,7 @@ const SignUpModal = ({ isOpen, onClose }) => {
 
     const modalRef = useRef(null);
 
+    // Closes modal if clicked outside
     useEffect(() => {
         function handleClickOutside(e) {
             if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -41,9 +44,23 @@ const SignUpModal = ({ isOpen, onClose }) => {
                         onSuccess={onClose}
                     />
 
-                    <div className="flex justify-between items-center mb-6">
-                        <CancelButton/>
-                        <ConfirmButton/>
+                    <p className="text-gray-400 text-sm text-center mt-4">
+                        or continue with
+                    </p>
+
+                    <div className="flex justify-center items-center gap-1 mt-4 mb-6">
+                        <OtherOptionButton
+                            label="Facebook"
+                            onClick="" // TODO: create functionality
+                        />
+                        <OtherOptionButton
+                            label="Google"
+                            onClick="" // TODO: create functionality
+                        />
+                        <OtherOptionButton
+                            label="Apple"
+                            onClick="" // TODO: create functionality
+                        />
                     </div>
                 </div>
             </div>
