@@ -7,6 +7,7 @@ import SignUpModal from "../components/modals/SignUpModal";
 const LandingPage = () => {
 
     const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
     function handleRegistrationOpen() {
         setIsRegistrationModalOpen(true);
