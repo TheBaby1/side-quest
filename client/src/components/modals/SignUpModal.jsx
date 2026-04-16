@@ -1,6 +1,7 @@
 import CloseButton from "../buttons/CloseButton";
 import CancelButton from "../buttons/CancelButton";
 import ConfirmButton from "../buttons/ConfirmButton";
+import SignUpForm from "../forms/SignUpForm";
 
 const SignUpModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
@@ -9,18 +10,16 @@ const SignUpModal = ({ isOpen, onClose }) => {
         <>
             <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
                 <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
-                    <div className="flex justify-between items-center mb-4">
-                        <h2 className="text-black font-semibold">Join Our Community</h2>
-                        <CloseButton
-                            onClick={onClose}
-                        />
+                    <div className="flex flex-col justify-center items-center mb-4">
+                        <h2 className="mb-4">Logo here</h2>
+                        <h2 className="text-black text-2xl font-semibold mb-4">Join Our Exclusive Community!</h2>
+                        <p className="text-gray-400 text-sm text-center px-6">
+                            Become a member to enjoy special content and offers. Sign up now and get 10% off your first
+                            purchase with SideQuest
+                        </p>
                     </div>
 
-                    <div className="mb-6">
-                        <h3>
-                            fields here
-                        </h3>
-                    </div>
+                    <SignUpForm/>
 
                     <div className="flex justify-between items-center mb-6">
                         <CancelButton/>
