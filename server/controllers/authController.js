@@ -1,0 +1,45 @@
+import User from '../models/User.js';
+import bycrpt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+
+// SIGN UP
+export const signup = async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+
+        // check if user is existing 
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: 'Email already in use. '});
+        }
+
+        // hash the password
+        const salt = await bycrpt.genSalt(10);
+        const hashedPassword = await bycript.hash(password, salt);
+
+        // create the user
+        const user = await User.create({
+            name,
+            email,
+            password: hashedPassword,
+        });
+
+        // generate token
+        const token = jwt.sign(
+            { id: user._id },
+            process.env.JWT_SECRET,
+            { expiresIn: "7d" }
+        );
+
+        res.status(201).json({
+            token,
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+            }
+        });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error.', error: error.message });
+    }
+}
