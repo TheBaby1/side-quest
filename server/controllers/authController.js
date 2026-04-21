@@ -1,5 +1,5 @@
 import User from '../models/User.js';
-import bycrpt from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 // SIGN UP
@@ -14,8 +14,8 @@ export const signup = async (req, res) => {
         }
 
         // hash the password
-        const salt = await bycrpt.genSalt(10);
-        const hashedPassword = await bycript.hash(password, salt);
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
 
         // create the user
         const user = await User.create({
@@ -52,13 +52,13 @@ export const login = async (req, res) => {
         // check if user exists
         const user = await User.findOne({ email });
         if (!user) {
-            res.status(400).json({ message: 'Invalid credentials.' });
+            return res.status(400).json({ message: 'Invalid credentials.' });
         }
 
         // compare password
-        const isMatch = await bycrpt.compare(password, user.password);
+        const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            res.status(400).json({ message: 'Invalid credentials.' });
+            return res.status(400).json({ message: 'Invalid credentials.' });
         }
 
         // generate token
