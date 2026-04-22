@@ -16,7 +16,7 @@ export const getAllUsers = async (req, res) => {
 
 export const getUserByUsername = async (req, res) => {
     try {
-        const [ username ] = req.body;
+        const { username }  = req.body;
 
         const searchedUser = await User.findOne({ username: `${username}`})
         if (!searchedUser) {
