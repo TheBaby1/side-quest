@@ -28,3 +28,18 @@ export const getUserByUsername = async (req, res) => {
         res.status(500).json({ message: 'Server error.', error: error.message });
     }
 }
+
+export const getUserByEmail = async (req, res) => {
+    try {
+        const { email } = req.body;
+
+        const searchedUser = await User.findOne({ email: `${email}` });
+        if (!searchedUser) {
+            return res.status(400).json({ message: 'User does not exist.' });
+        }
+
+        res.status(200).json(searchedUser);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error.', error: error.message });
+    }
+}
