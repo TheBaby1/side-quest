@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 
 const taskSchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
     title: {
         type: String,
         required: true,
@@ -8,12 +13,14 @@ const taskSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true,
+        required: false,
+        trim: true,
         maxlength: 200,
     },
     status: {
         type: String,
         enum: ['pending', 'in-progress', 'completed'],
+        default: 'pending',
         required: true,
     }
 
