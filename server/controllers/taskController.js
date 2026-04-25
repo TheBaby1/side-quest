@@ -24,14 +24,9 @@ export const createTask = async (req, res) => {
 
 export const displayUserTasks = async (req, res) => {
     try {
-        const existingUser = await User.findOne({ _id: req.user.id });
-        if (!existingUser) {
-            return res.status(400).json({ message: 'User does not exist.' });
-        }
-
         const tasks = await Task.find({ userId: req.user.id });
 
-        res.satus(200).json(tasks);
+        res.status(200).json(tasks);
     } catch (error) {
         res.status(500).json({ message: 'Server error.', error: error.message });
     }
