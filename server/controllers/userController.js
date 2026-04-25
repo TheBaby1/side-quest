@@ -16,7 +16,7 @@ export const getAllUsers = async (req, res) => {
 
 export const getUserByUsername = async (req, res) => {
     try {
-        const { username }  = req.body;
+        const { username }  = req.body; 
 
         const searchedUser = await User.findOne({ username: `${username}`})
         if (!searchedUser) {
@@ -39,6 +39,40 @@ export const getUserByEmail = async (req, res) => {
         }
 
         res.status(200).json(searchedUser);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error.', error: error.message });
+    }
+}
+
+export const updateUserById = async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+
+        const updatedFields = {};
+
+        if (username) {
+            updatedFields.username = username;
+        }
+
+        if (email) {
+            updatedFields.email = email;
+        }
+
+        if (password) {
+            updatedFields.password = password;
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(
+            { _id: req.params._id },
+            { $set: updatedFields },
+            { new: true }
+        )
+
+        if (!updatedUser) {
+            return res.status(400).json({ message: 'Failed to update user.' });
+        }
+
+        res.status(200).json(updatedUser);
     } catch (error) {
         res.status(500).json({ message: 'Server error.', error: error.message });
     }
