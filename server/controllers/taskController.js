@@ -31,3 +31,31 @@ export const displayUserTasks = async (req, res) => {
         res.status(500).json({ message: 'Server error.', error: error.message });
     }
 }
+
+export const updateUserTasks = async (req, res) => {
+    try {
+        const { title, description, status } = req.body;
+
+        const updatedFields = {}
+
+        if (title) updatedFields.title = title;
+
+        if (description) updatedFields.description = description;
+
+        if (status) updatedFields.status = status;
+
+        const updatedTask = await Task.findByIdAndUpdate(
+            req.user.id,
+            { $set: updatedFields },
+            { new: true }
+        )
+
+        if (!updatedTask) {
+            return res.status(400).json({ message: 'Update was unsuccessful' });
+        }
+
+        res.status(200).json(updatedTask);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error.', error: error.message });
+    }   
+}
