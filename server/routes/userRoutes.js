@@ -13,6 +13,6 @@ router.get('/get-all-users', getAllUsers);
 router.post('/get-by-username', getUserByUsername);
 router.post('/get-by-email', getUserByEmail);
 router.put('/update-by-id/:id', updateUserById);
-router.put('/delete-by-id/:id', deleteUserById);
+router.delete('/delete-by-id/:id', deleteUserById);
 
 export default router;
