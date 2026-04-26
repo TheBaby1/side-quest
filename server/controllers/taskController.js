@@ -45,7 +45,7 @@ export const updateUserTasks = async (req, res) => {
         if (status) updatedFields.status = status;
 
         const updatedTask = await Task.findByIdAndUpdate(
-            req.user.id,
+            { _id: req.params.id, userId: req.user.id },
             { $set: updatedFields },
             { new: true }
         )
