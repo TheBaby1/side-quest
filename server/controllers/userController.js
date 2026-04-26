@@ -5,7 +5,7 @@ export const getAllUsers = async (req, res) => {
         const users = await User.find({})
 
         if (users.length === 0) {
-            return res.status(400).json({ message: 'Users do not exist.' });
+            return res.status(404).json({ message: 'User not found.' });
         }
 
         res.status(200).json(users);
@@ -20,7 +20,7 @@ export const getUserByUsername = async (req, res) => {
 
         const searchedUser = await User.findOne({ username: `${username}`})
         if (!searchedUser) {
-            return res.status(400).json({ message: 'User does not exist.' });
+            return res.status(404).json({ message: 'User not found.' });
         }
 
         res.status(200).json(searchedUser);
@@ -35,7 +35,7 @@ export const getUserByEmail = async (req, res) => {
 
         const searchedUser = await User.findOne({ email: `${email}` });
         if (!searchedUser) {
-            return res.status(400).json({ message: 'User does not exist.' });
+            return res.status(404).json({ message: 'User not found' });
         }
 
         res.status(200).json(searchedUser);
@@ -50,17 +50,11 @@ export const updateUserById = async (req, res) => {
 
         const updatedFields = {};
 
-        if (username) {
-            updatedFields.username = username;
-        }
+        if (username) updatedFields.username = username;
 
-        if (email) {
-            updatedFields.email = email;
-        }
+        if (email) updatedFields.email = email;
 
-        if (password) {
-            updatedFields.password = password;
-        }
+        if (password) updatedFields.password = password;
 
         const updatedUser = await User.findByIdAndUpdate(
             req.params.id,
@@ -73,6 +67,20 @@ export const updateUserById = async (req, res) => {
         }
 
         res.status(200).json(updatedUser);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error.', error: error.message });
+    }
+}
+
+export const deleteUserById = async (req, res) => {
+    try {
+        const deletedUser = await User.findByIdAndDelete(req.params.id);
+
+        if (!deletedUser) {
+            return res.status(404).json({ message: 'User not found.' });
+        }
+
+        res.status(200).json({ message: 'Successfully deleted user.' });
     } catch (error) {
         res.status(500).json({ message: 'Server error.', error: error.message });
     }
