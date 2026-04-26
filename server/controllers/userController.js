@@ -50,17 +50,11 @@ export const updateUserById = async (req, res) => {
 
         const updatedFields = {};
 
-        if (username) {
-            updatedFields.username = username;
-        }
+        if (username) updatedFields.username = username;
 
-        if (email) {
-            updatedFields.email = email;
-        }
+        if (email) updatedFields.email = email;
 
-        if (password) {
-            updatedFields.password = password;
-        }
+        if (password) updatedFields.password = password;
 
         const updatedUser = await User.findByIdAndUpdate(
             req.params.id,
