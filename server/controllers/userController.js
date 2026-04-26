@@ -5,7 +5,7 @@ export const getAllUsers = async (req, res) => {
         const users = await User.find({})
 
         if (users.length === 0) {
-            return res.status(400).json({ message: 'Users do not exist.' });
+            return res.status(404).json({ message: 'User not found.' });
         }
 
         res.status(200).json(users);
@@ -20,7 +20,7 @@ export const getUserByUsername = async (req, res) => {
 
         const searchedUser = await User.findOne({ username: `${username}`})
         if (!searchedUser) {
-            return res.status(400).json({ message: 'User does not exist.' });
+            return res.status(404).json({ message: 'User not found.' });
         }
 
         res.status(200).json(searchedUser);
@@ -35,7 +35,7 @@ export const getUserByEmail = async (req, res) => {
 
         const searchedUser = await User.findOne({ email: `${email}` });
         if (!searchedUser) {
-            return res.status(400).json({ message: 'User does not exist.' });
+            return res.status(404).json({ message: 'User not found' });
         }
 
         res.status(200).json(searchedUser);
