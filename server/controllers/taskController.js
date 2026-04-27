@@ -59,3 +59,19 @@ export const updateUserTasks = async (req, res) => {
         res.status(500).json({ message: 'Server error.', error: error.message });
     }   
 }
+
+export const deleteUserTask = async (req, res) => {
+    try {
+        const deletedTask = await Task.findByIdAndDelete(
+            { _id: req.params.id, userId: req.user.id }
+        )
+
+        if (!deletedTask) {
+            return res.status(400).json({ message: 'Failed to delete task.' });
+        }
+
+        res.status(200).json(deletedTask);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error.', error: error.message });
+    }
+}
