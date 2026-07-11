@@ -1,3 +1,5 @@
+import ContactUsForm from "../forms/ContactUsForm";
+
 const ContactUsPageHero = () => {
     return (
         <>
@@ -44,7 +46,8 @@ const ContactUsPageHero = () => {
 
                 <div className="w-full md:w-[40%] border border-gray-100 rounded-lg shadow-sm p-8">
                     <h3 className="text-2xl font-medium text-zinc-950 leading-tight mb-2">Contact Us</h3>
-                    <span className="text-sm text-gray-600">You can reach us anytime</span>
+                    <span className="block text-sm text-gray-600 mb-4">You can reach us anytime</span>
+                    <ContactUsForm />
                 </div>
             </section>
         </>
