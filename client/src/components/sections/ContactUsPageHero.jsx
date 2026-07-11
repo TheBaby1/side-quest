@@ -1,22 +1,48 @@
 const ContactUsPageHero = () => {
     return (
         <>
-            <section className="w-full flex justify-center items-stretch py-20 px-40 gap-8">
-                <div className="w-full flex flex-col md:w-1/2 p-8">
+            <section className="w-full flex justify-center items-stretch py-20 px-20 gap-8">
+                <div className="w-full flex flex-col md:w-[60%] p-8">
                     <div className="w-full">
-                        <h1 className="text-3xl font-bold text-zinc-950 leading-tight">Get In Touch</h1>
-                        <span className="text-lg font-medium text-amber-700">Let's Build Something Together</span>
-                        <p className="text-sm leading-relaxed text-gray-600">
+                        <h1 className="text-3xl font-bold text-zinc-950 leading-tight mb-4">Get In Touch</h1>
+                        <span className="block text-lg font-medium text-amber-700">Let's Build Something Together</span>
+                        <p className="text-sm leading-relaxed text-gray-600 mb-4">
                             Whether you are looking to scale your engineering team, discuss full-stack code
                             architecture, or simply talk about modern JavaScript development workflows,
                             I would love to connect. I am available for full-time software engineering roles
                             and ready for immediate deployment.
                         </p>
-                        <span className="text-sm text-gray-600">nikkoensomo.work@gmail.com</span>
+                    </div>
+
+                    <div className="flex self-stretch gap-4 mt-8">
+                        <div>
+                            <h3 className="text-sm font-medium text-zinc-950">Opportunities & Hiring</h3>
+                            <p className="text-sm leading-relaxed text-gray-600 mt-2">
+                                Looking to expand your engineering team? I am actively seeking full-time roles 
+                                and am ready for immediate deployment. Let's discuss how my full-stack background 
+                                can add value to your current production sprints.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 className="text-sm font-medium text-zinc-950">Code & Collaboration</h3>
+                            <p className="text-sm leading-relaxed text-gray-600 mt-2">
+                                Have questions about SideQuest's data flow, component architecture, or state management? 
+                                Feel free to open an issue on GitHub or reach out to discuss clean engineering practices.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 className="text-sm font-medium text-zinc-950">Direct Channels</h3>
+                            <p className="text-sm leading-relaxed text-gray-600 mt-2">
+                                For all other inquiries, casual networking, or technical consultations, you can reach me 
+                                directly. I actively monitor my inbox and typically respond within 24 business hours.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div className="w-full md:w-1/2 p-8">
+                <div className="w-full md:w-[40%] p-8">
 
                 </div>
             </section>
