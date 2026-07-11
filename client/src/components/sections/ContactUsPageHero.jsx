@@ -15,7 +15,7 @@ const ContactUsPageHero = () => {
                     </div>
 
                     <div className="flex self-stretch gap-4 mt-8">
-                        <div>
+                        <div className="flex-1">
                             <h3 className="text-sm font-medium text-zinc-950">Opportunities & Hiring</h3>
                             <p className="text-sm leading-relaxed text-gray-600 mt-2">
                                 Looking to expand your engineering team? I am actively seeking full-time roles 
@@ -24,7 +24,7 @@ const ContactUsPageHero = () => {
                             </p>
                         </div>
 
-                        <div>
+                        <div className="flex-1">
                             <h3 className="text-sm font-medium text-zinc-950">Code & Collaboration</h3>
                             <p className="text-sm leading-relaxed text-gray-600 mt-2">
                                 Have questions about SideQuest's data flow, component architecture, or state management? 
@@ -32,7 +32,7 @@ const ContactUsPageHero = () => {
                             </p>
                         </div>
 
-                        <div>
+                        <div className="flex-1">
                             <h3 className="text-sm font-medium text-zinc-950">Direct Channels</h3>
                             <p className="text-sm leading-relaxed text-gray-600 mt-2">
                                 For all other inquiries, casual networking, or technical consultations, you can reach me 
@@ -42,8 +42,9 @@ const ContactUsPageHero = () => {
                     </div>
                 </div>
 
-                <div className="w-full md:w-[40%] p-8">
-
+                <div className="w-full md:w-[40%] border border-gray-100 rounded-lg shadow-sm p-8">
+                    <h3 className="text-2xl font-medium text-zinc-950 leading-tight mb-2">Contact Us</h3>
+                    <span className="text-sm text-gray-600">You can reach us anytime</span>
                 </div>
             </section>
         </>
