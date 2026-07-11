@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import BigBlackButton from '../buttons/BigBlackButton';
+
 const ContactUsForm = () => {
     const [formData, setFormData] = useState({
         firstName: '',
@@ -12,6 +14,8 @@ const ContactUsForm = () => {
     const [error, setError] = useState({
         general: ''
     });
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -75,6 +79,12 @@ const ContactUsForm = () => {
                         className="mt-1 w-full resize-none rounded-md border border-gray-300 px-4 py-2 text-sm text-zinc-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-zinc-950"
                     />
                 </div>
+
+                <BigBlackButton
+                    label="Submit"
+                    onClick=""
+                    isDisabled={isLoading}
+                />
             </div>
         </>
     );
