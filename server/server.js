@@ -7,6 +7,7 @@ import authRoutes from './routes/authRoutes.js';
 import healthRoutes from './routes/healthRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import questRoutes from './routes/questRoutes.js';
+import contactRoutes from './routes/contactRoutes.js'
 
 dotenv.config();
 connectDB();
@@ -31,6 +32,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/health", healthRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/quests", questRoutes);
+
+// email route
+app.use("/api/contact", contactRoutes);
 
 // server
 const PORT = process.env.PORT || 8080;
