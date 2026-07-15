@@ -4,7 +4,7 @@ import { LoaderCircle } from 'lucide-react';
 
 import BigBlackButton from '../buttons/BigBlackButton';
 
-const ContactUsForm = () => {
+const ContactUsForm = ({ onSuccess }) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -73,6 +73,7 @@ const ContactUsForm = () => {
 
             const sentEmail = await sendContactMessageService(payload);
             console.log(sentEmail);
+            onSuccess();
         } catch (error) {
             setErrors({
                 ...errors,

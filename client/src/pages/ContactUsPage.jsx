@@ -5,6 +5,7 @@ import ContactUsPageHero from "../components/sections/ContactUsPageHero";
 import useDocumentTitle from '../hooks/useDocumentTitle.js';
 import SignUpModal from '../components/modals/SignUpModal.jsx';
 import LoginModal from '../components/modals/LoginModal.jsx';
+import SubmissionSuccessModal from '../components/modals/SubmissionSuccessModal.jsx';
 
 const ContactUsPage = () => {
     useDocumentTitle('Contact Us - SideQuest');
@@ -19,6 +20,10 @@ const ContactUsPage = () => {
         setModalMode('register');
     }
 
+    const handleSuccessModal = () => {
+        setModalMode('success');
+    }
+
     const handleCloseModal = () => {
         setModalMode(null);
     }
@@ -30,7 +35,9 @@ const ContactUsPage = () => {
                 onLogin={handleLoginModal}
             />
             <main>
-                <ContactUsPageHero/>
+                <ContactUsPageHero
+                    onSuccess={handleSuccessModal}
+                />
             </main>
 
             <LoginModal 
@@ -41,6 +48,11 @@ const ContactUsPage = () => {
             <SignUpModal 
                 isOpen={modalMode === 'register'}
                 onClose={handleCloseModal}
+            />
+
+            <SubmissionSuccessModal
+                isOpen={modalMode === 'success'}
+                onClick={handleCloseModal}
             />
         </>
     );
