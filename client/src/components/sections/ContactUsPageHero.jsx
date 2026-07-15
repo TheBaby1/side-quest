@@ -1,6 +1,6 @@
 import ContactUsForm from "../forms/ContactUsForm";
 
-const ContactUsPageHero = () => {
+const ContactUsPageHero = ({ onSuccess }) => {
     return (
         <>
             <section className="w-full flex justify-center items-stretch py-20 px-20 gap-8">
@@ -47,7 +47,9 @@ const ContactUsPageHero = () => {
                 <div className="w-full md:w-[40%] border border-gray-100 rounded-lg shadow-sm p-8">
                     <h3 className="text-2xl font-medium text-zinc-950 leading-tight mb-2">Contact Us</h3>
                     <span className="block text-sm text-gray-600 mb-4">You can reach us anytime</span>
-                    <ContactUsForm />
+                    <ContactUsForm 
+                        onSuccess={onSuccess}
+                    />
                 </div>
             </section>
         </>
