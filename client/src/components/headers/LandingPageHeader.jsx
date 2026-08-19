@@ -2,14 +2,19 @@ import { NavLink } from 'react-router-dom';
 
 import LoginButton from "../buttons/LoginButton";
 import GetStartedButton from "../buttons/GetStartedButton";
+import sidequestIcon from "../../../public/sidequestIcon.png";
 
 const LandingPageHeader = ({ onGetStarted, onLogin }) => {
     return (
         <header className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/90 backdrop-blur">
-            <div className="mx-auto w-full flex items-center justify-between px-12 py-4">
-                <span className="text-xl font-bold text-zinc-950">SideQuest</span>
+            <div className="mx-auto w-full grid grid-cols-3 items-center px-12 py-4">
+                <img 
+                    src={sidequestIcon}
+                    alt="Sidequest Icon"
+                    className="h-10 object-contain"
+                />
 
-                <nav className="hidden gap-6 text-sm font-medium text-gray-600 md:flex">
+                <nav className="hidden justify-center gap-6 text-sm font-medium text-gray-600 md:flex">
                     <NavLink to="/" className="hover:text-zinc-950">
                         Home
                     </NavLink>
@@ -23,7 +28,7 @@ const LandingPageHeader = ({ onGetStarted, onLogin }) => {
                     </NavLink>
                 </nav>
 
-                <div className="flex gap-3">
+                <div className="flex justify-end gap-3">
                     <LoginButton onClick={onLogin} />
                     <GetStartedButton onClick={onGetStarted} />
                 </div>
